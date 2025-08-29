@@ -1,23 +1,19 @@
-import clsx from "clsx";
 import {
   LucideCircleCheckBig,
   LucideFile,
   LucidePencilLine,
 } from "lucide-react";
 import Link from "next/link";
+import Heading from "@/components/heading";
 import {
   Card,
-  CardAction,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
 import { initialTickets } from "@/data";
 import { ticketPath } from "@/paths";
-
 const TICKET_ICONS = {
   OPEN: <LucideFile />,
   DONE: <LucideCircleCheckBig />,
@@ -27,16 +23,10 @@ const TICKET_ICONS = {
 const TicketsPage = () => {
   return (
     <div className="flex-1 flex flex-col gap-y-8">
-      <div className="">
-        <h1 className="text-3xl font-bold tracking-tight">
-          Tickets Page
-        </h1>
-
-        <p className="text-sm text-muted-foreground">
-          All your tickets at one place
-        </p>
-      </div>
-      <Separator />
+      <Heading
+        title="Tickets Page"
+        description="All your tickets at one place"
+      />
       <ul className="flex-1 flex flex-col items-center gap-y-4 animate-fade-down animate-duration-500 animate-ease-out">
         {initialTickets.tickets.map((ticket) => (
           <Card key={ticket.id} className="w-full max-w-[420px]">
